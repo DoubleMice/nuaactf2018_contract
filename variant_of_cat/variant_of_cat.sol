@@ -35,7 +35,7 @@ contract baseRule{
                 result = false;
             }
         } else {
-            //vactory reward
+            //victory reward
             cats[catID].level = cats[catID].level + catTarget.level;
             cats[catID].damage = cats[catID].damage + catTarget.damage;
             cats[catID].HP = cats[catID].HP + catTarget.HP;
@@ -45,7 +45,7 @@ contract baseRule{
         _triggerCoolCountDown(catID);
         return result;
     }
-    event vactory(string b64email,string slogan);
+    event victory(string b64email,string slogan);
 }
 
 contract catStore is baseRule {
@@ -96,7 +96,7 @@ contract variant_of_cat is catStore {
     function getFlag(string b64email) external {
         require(fightWithBoss == true,"OOOOhhhh nnnnoooo,小老弟?你不把我猫王之王放在眼里-_-||");
         require(keccak256(abi.encodePacked(b64email))!=keccak256(""),"表哥你的flag掉了");
-        emit vactory(b64email, "6666!");
+        emit victory(b64email, "6666!");
     }
     function luCat() constant isPlayer(msg.sender) external returns(uint32,uint32,uint32,uint32,uint,uint) {
         return (
